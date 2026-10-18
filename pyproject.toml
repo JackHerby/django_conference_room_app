@@ -1,0 +1,25 @@
+[tool.black]
+extend-exclude = "migrations"
+line-length=111
+target-version = ["py314"]
+
+[tool.djlint]
+indent = 4
+profile="django"
+use_gitignore = true
+
+[tool.isort]
+line_length = 111
+profile = "black"
+#
+extend_skip = ["migrations"]
+known_django = "django"
+known_first_party = ["room_reservation", "room_reservation_app"]
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALS"]
+
+[tool.poe.tasks]
+black  = { cmd = "black .", help = "Format Python code" }
+djlint = { cmd = "djlint . --reformat", help = "Format HTML templates" }
+isort  = { cmd = "isort .", help = "Sort Python imports" }
+#
+format = { sequence = ["isort", "black", "djlint"], help = "Format the whole project" }

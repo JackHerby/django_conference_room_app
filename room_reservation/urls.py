@@ -14,17 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
-from room_reservation_app.views import Main, AddRoom, RoomList, DeleteRoom, EditRoom, BookRoom, RoomDetails
+
+from room_reservation_app.views import AddRoom, BookRoom, DeleteRoom, EditRoom, Main, RoomDetails, RoomList
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', Main.as_view()),
-    path('room/new/', AddRoom.as_view()),
-    path('rooms/', RoomList.as_view()),
-    path('room/delete/<int:room_id>/', DeleteRoom.as_view()),
-    path('room/modify/<int:room_id>/', EditRoom.as_view()),
-    path('room/book/<int:room_id>/', BookRoom.as_view()),
-    path('room/details/<int:room_id>/', RoomDetails.as_view()),
+    path("admin/", admin.site.urls),
+    path("", Main.as_view()),
+    path("room/new/", AddRoom.as_view()),
+    path("rooms/", RoomList.as_view()),
+    path("room/delete/<int:room_id>/", DeleteRoom.as_view()),
+    path("room/modify/<int:room_id>/", EditRoom.as_view()),
+    path("room/book/<int:room_id>/", BookRoom.as_view()),
+    path("room/details/<int:room_id>/", RoomDetails.as_view()),
 ]

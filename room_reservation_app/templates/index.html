@@ -1,36 +1,36 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static '../static/css/main.css' %}" />
-    <title>{% block title %}Room Reservation App Workshop{% endblock %}</title>
-  </head>
-  <body>
-    <header>
-      <h1>Conference Room Reservation</h1>
-      <p>
-        <a href="/rooms/" class="btn">Room List</a>
-        <a href="/room/new/" class="btn">Add New Room</a>
-        <a href="/" class="btn">Home</a>
-      </p>
-    </header>
-    <main>
-      {% block main %}
-      <div class="welcome">
-        <h1>Welcome to room reservation app.</h1>
-      </div>
-      {% endblock %} {% if error %}
-      <div class="error">
-        <h2>{{ error }}</h2>
-      </div>
-      {% endif %}
-    </main>
-    <footer>
-      <h2>© 2023 github.com/JacekZiolek</h2>
-    </footer>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static '../static/css/main.css' %}" />
+        <title>{% block title %}Room Reservation App Workshop{% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <h1>Conference Room Reservation</h1>
+            <p>
+                <a href="/rooms/" class="btn">Room List</a>
+                <a href="/room/new/" class="btn">Add New Room</a>
+                <a href="/" class="btn">Home</a>
+            </p>
+        </header>
+        <main>
+            {% block main %}
+                <div class="welcome">
+                    <h1>Welcome to room reservation app.</h1>
+                </div>
+            {% endblock %}
+            {% if error %}
+                <div class="error">
+                    <h2>{{ error }}</h2>
+                </div>
+            {% endif %}
+        </main>
+        <footer>
+            <h2>© 2023 github.com/JacekZiolek</h2>
+        </footer>
+    </body>
 </html>

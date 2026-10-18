@@ -1,22 +1,24 @@
 {% extends "index.html" %}
 {% block main %}
-<form action="" method="POST">
-  <label for="name">
-    <h2>Name</h2>
-  </label>
-  <input type="text" name="name" value="{{ room.name }}"/>
-  <label for="capacity">
-    <h2>Capacity</h2>
-  </label>
-  <input type="number" name="capacity" value="{{ room.capacity }}"/>
-  <label for="is_projector_available">
-    <h2>Is projector available?</h2>
-  </label>
-  <input type="checkbox" name="is_projector_available" {% if room.is_projector_available %}checked{% endif %} />
-  <br />
-  {% csrf_token %}
-  <button type="submit" class="btn btn-submit">
-    <p>{% block btn_content %}Add{% endblock %}</p>
-  </button>
-</form>
+    <form action="" method="post">
+        <label for="name">
+            <h2>Name</h2>
+        </label>
+        <input type="text" name="name" value="{{ room.name }}" />
+        <label for="capacity">
+            <h2>Capacity</h2>
+        </label>
+        <input type="number" name="capacity" value="{{ room.capacity }}" />
+        <label for="is_projector_available">
+            <h2>Is projector available?</h2>
+        </label>
+        <input type="checkbox"
+               name="is_projector_available"
+               {% if room.is_projector_available %}checked{% endif %} />
+        <br />
+        {% csrf_token %}
+        <button type="submit" class="btn btn-submit">
+            <p>{% block btn_content %}Add{% endblock %}</p>
+        </button>
+    </form>
 {% endblock %}
