@@ -3,6 +3,12 @@ extend-exclude = "migrations"
 line-length=111
 target-version = ["py314"]
 
+[tool.pyrefly]
+preset = "default"
+project-includes = ["room_reservation_app", "room_reservation", "manage.py"]
+project-exludes = [".venv", "**/migrations"]
+python-interpreter-path = ".venv/bin/python"
+
 [tool.djlint]
 indent = 4
 profile="django"

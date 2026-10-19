@@ -5,8 +5,6 @@ from django.views import View
 
 from room_reservation_app.models import Room, RoomReservation
 
-# Create your views here.
-
 
 class Main(View):
     def get(self, request):
