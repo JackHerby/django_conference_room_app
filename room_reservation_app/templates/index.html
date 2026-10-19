@@ -12,26 +12,30 @@
     <body>
         <header>
             <h1>Conference Room Reservation</h1>
-            <p>
-                <a href="/rooms/" class="btn">Room List</a>
-                <a href="/room/new/" class="btn">Add New Room</a>
-                <a href="/" class="btn">Home</a>
-            </p>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/rooms/">Room List</a>
+                    </li>
+                    <li>
+                        <a href="/room/new/">Add New Room</a>
+                    </li>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
         <main>
             {% block main %}
-                <div class="welcome">
-                    <h1>Welcome to room reservation app.</h1>
-                </div>
+                <h1>Welcome to room reservation app.</h1>
             {% endblock %}
             {% if error %}
-                <div class="error">
-                    <h2>{{ error }}</h2>
-                </div>
+                <p class="notice">{{ error }}</p>
             {% endif %}
         </main>
         <footer>
-            <h2>© 2023 github.com/JacekZiolek</h2>
+            <p>© 2023 github.com/JacekZiolek</p>
         </footer>
     </body>
 </html>

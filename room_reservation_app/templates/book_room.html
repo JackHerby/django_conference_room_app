@@ -2,19 +2,11 @@
 {% block main %}
     <form action="" method="post">
         <h2>Book {{ room_name }}</h2>
-        <br>
-        <label for="comment">
-            <h2>Comment</h2>
-        </label>
-        <input type="text" name="comment" />
-        <label for="date">
-            <h2>Date</h2>
-        </label>
-        <input type="date" name="reservation_date" />
-        <br>
+        <label for="comment">Comment</label>
+        <input type="text" id="comment" name="comment" />
+        <label for="date">Date</label>
+        <input type="date" id="date" name="reservation_date" />
         {% csrf_token %}
-        <button type="submit" class="btn btn-submit">
-            <p>{% block btn_content %}Book{% endblock %}</p>
-        </button>
+        <button type="submit">{% block btn_content %}Book{% endblock %}</button>
     </form>
 {% endblock %}

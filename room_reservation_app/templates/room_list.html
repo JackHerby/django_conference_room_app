@@ -2,56 +2,36 @@
 {% block main %}
     <table>
         <tr>
-            <th>
-                <p>Room Name</p>
-            </th>
-            <th>
-                <p>Room Capacity</p>
-            </th>
-            <th>
-                <p>Is room available?</p>
-            </th>
-            <th>
-                <p>Is projector available?</p>
-            </th>
-            <th>
-                <p>Actions</p>
-            </th>
+            <th>Room Name</th>
+            <th>Room Capacity</th>
+            <th>Is room available?</th>
+            <th>Is projector available?</th>
+            <th>Actions</th>
         </tr>
         {% for room in room_list %}
             <tr>
                 <td>
-                    <a href="/room/details/{{ room.id }}/" class="room-name">
-                        <p>{{ room.name }}</p>
-                    </a>
+                    <a href="/room/details/{{ room.id }}/">{{ room.name }}</a>
                 </td>
-                <td>
-                    <p>{{ room.capacity }}</p>
-                </td>
+                <td>{{ room.capacity }}</td>
                 <td>
                     {% if room.is_booked %}
-                        <p>Booked</p>
+                        Booked
                     {% else %}
-                        <p>Opened</p>
+                        Opened
                     {% endif %}
                 </td>
                 <td>
                     {% if room.is_projector_available %}
-                        <p>Available</p>
+                        Available
                     {% else %}
-                        <p>Not Available</p>
+                        Not Available
                     {% endif %}
                 </td>
                 <td>
-                    <a href="/room/modify/{{ room.id }}/" class="btn-actions">
-                        <p>edit</p>
-                    </a>
-                    <a href="/room/delete/{{ room.id }}/" class="btn-actions">
-                        <p>delete</p>
-                    </a>
-                    <a href="/room/book/{{ room.id }}/" class="btn-actions">
-                        <p>book</p>
-                    </a>
+                    <a href="/room/modify/{{ room.id }}/" class="button">edit</a>
+                    <a href="/room/delete/{{ room.id }}/" class="button">delete</a>
+                    <a href="/room/book/{{ room.id }}/" class="button">book</a>
                 </td>
             </tr>
         {% endfor %}
